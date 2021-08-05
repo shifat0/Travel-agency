@@ -1,0 +1,64 @@
+.body-container {
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.details {
+  margin-bottom: 30px;
+  margin-right: 40px;
+}
+
+.details h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.details p {
+  margin: 10px 0;
+}
+
+.booking {
+  background-color: rgb(233, 132, 16);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.booking:active {
+  transform: scale(0.95);
+}
+
+.booking img {
+  margin-left: 5px;
+}
+
+.swiper-container {
+  width: 100%;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .body-container {
+    flex-direction: column;
+    margin-top: 50px;
+  }
+  .details {
+    width: 100%;
+    margin: 0px auto;
+    margin-bottom: 100px;
+  }
+  .swiper-slide {
+    display: block;
+  }
+}

@@ -1,0 +1,33 @@
+.images {
+  width: 15vw;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.slider {
+  position: relative;
+  width: 20%;
+}
+
+.slider.active .images {
+  border: 2px solid #ffc107;
+  border-radius: 20px;
+}
+
+span {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+}
+
+@media (max-width: 768px) {
+  .slider.active .images {
+    border: none;
+  }
+  .images {
+    width: 40vw;
+    display: block;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,33 @@
+.home {
+  background-image: url(../../images/background.png);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  max-width: 100%;
+}
+
+.home-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.container {
+  width: 1120px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 700px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 454px) {
+  .container {
+    width: 400px;
+    margin: 0 auto;
+  }
+}
