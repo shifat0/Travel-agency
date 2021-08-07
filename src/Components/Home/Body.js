@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./Body.css";
 import rightIcon from "../../images/right-icon.svg";
-import { SliderData } from "../Data/SliderData";
+import { Data } from "../Data/Data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Navigation } from "swiper";
 import "swiper/swiper-bundle.min.css";
 import Slider from "./Slider";
+import { Link } from "react-router-dom";
 
 SwiperCore.use([Navigation, Autoplay]);
 
@@ -14,7 +15,7 @@ const Body = () => {
   const [booking, setBooking] = useState({});
 
   useEffect(() => {
-    const activeSlide = SliderData.find(
+    const activeSlide = Data.find(
       (slide, index) => index.toString() === slideIndex.toString()
     );
     setBooking(activeSlide);
@@ -36,9 +37,11 @@ const Body = () => {
       <div className="details">
         <h1>{booking.name}</h1>
         <p>{booking.description?.slice(0, 100)} ...</p>
-        <button className="booking">
-          Booking <img src={rightIcon} alt="right-icon" />
-        </button>
+        <Link to={`/booking/${booking.name}`}>
+          <button className="booking">
+            Booking <img src={rightIcon} alt="right-icon" />
+          </button>
+        </Link>
       </div>
 
       <Swiper
@@ -55,7 +58,7 @@ const Body = () => {
           },
         }}
       >
-        {SliderData.map((slide) => {
+        {Data.map((slide) => {
           return (
             <SwiperSlide key={slide.id}>
               {({ isActive }) => <Slider isActive={isActive} slide={slide} />}

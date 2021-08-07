@@ -5,7 +5,7 @@ const Slider = ({ isActive, slide }) => {
   return (
     <div className={isActive ? "slider active" : "slider"}>
       <img src={slide.image} alt="slide" className="images" />
-      <span>{slide.name}</span>
+      <span className="place-tag">{slide.name}</span>
     </div>
   );
 };

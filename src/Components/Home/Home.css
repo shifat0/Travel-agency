@@ -4,6 +4,7 @@
   background-size: cover;
   height: 100vh;
   max-width: 100%;
+  color: #fff;
 }
 
 .home-overlay {
@@ -19,6 +20,9 @@
 }
 
 @media (max-width: 768px) {
+  .home {
+    height: 120vh;
+  }
   .container {
     width: 700px;
     margin: 0 auto;
@@ -26,6 +30,12 @@
 }
 
 @media (max-width: 454px) {
+  .home {
+    height: 130vh;
+  }
+  .home-overlay {
+    padding: 10px 0;
+  }
   .container {
     width: 400px;
     margin: 0 auto;
