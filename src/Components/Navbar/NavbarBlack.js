@@ -35,9 +35,11 @@ const NavbarBlack = () => {
           <li>Hotels</li>
           <li>Blog</li>
           <li>Contact</li>
-          <button className="btn" style={{ color: "black" }}>
-            Log in
-          </button>
+          <Link to="/login">
+            <button className="btn" style={{ color: "black" }}>
+              Log in
+            </button>
+          </Link>
         </ul>
       </nav>
     </div>

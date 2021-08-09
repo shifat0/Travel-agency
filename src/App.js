@@ -4,6 +4,8 @@ import Home from "./Components/Home/Home";
 import NotFound from "./Components/NotFound/NotFound";
 import Booking from "./Components/Booking/Booking";
 import Hotels from "./Components/Hotels/Hotels";
+import LogIn from "./Components/LogIn/LogIn";
+import SignUp from "./Components/SignUp/SignUp";
 
 function App() {
   return (
@@ -17,6 +19,12 @@ function App() {
         </Route>
         <Route exact path="/:name/hotels">
           <Hotels />
+        </Route>
+        <Route path="/login">
+          <LogIn />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
         </Route>
         <Route path="*">
           <NotFound />

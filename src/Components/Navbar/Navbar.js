@@ -27,7 +27,9 @@ const Navbar = () => {
           <li>Hotels</li>
           <li>Blog</li>
           <li>Contact</li>
-          <button className="btn">Log in</button>
+          <Link to="login">
+            <button className="btn">Log in</button>
+          </Link>
         </ul>
       </nav>
     </div>

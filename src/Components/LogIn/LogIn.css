@@ -1,0 +1,131 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 30px 0;
+}
+
+.login-form {
+  width: 450px;
+  margin: 30px 0;
+  padding: 2rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+.login-form input {
+  background-color: transparent;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+  padding: 10px 0;
+}
+
+.login-form input:invalid {
+  border-bottom: 2px solid red;
+}
+
+.login-form .error {
+  color: red;
+  border-bottom: none;
+}
+
+.forget-password {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+form .submit {
+  border: 0;
+  background-color: rgba(233, 132, 16);
+  margin: 20px 0;
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+
+form .submit:active {
+  transform: scale(0.98);
+}
+
+.login-form span,
+.forget-password span {
+  color: rgba(233, 132, 16);
+  border-bottom: 1px solid rgba(233, 132, 16);
+  cursor: pointer;
+}
+
+.fancy span {
+  display: inline-block;
+  position: relative;
+}
+
+.fancy span:before,
+.fancy span:after {
+  content: "";
+  position: absolute;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  top: 50%;
+  transform: translateY(100%);
+  width: 150px;
+}
+
+.fancy span:before {
+  right: 100%;
+  margin-right: 5px;
+}
+
+.fancy span:after {
+  left: 100%;
+  margin-left: 5px;
+}
+
+.other-accounts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 82%;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  border-radius: 30px;
+  margin-top: 30px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: transform 0.4s;
+}
+
+.other-accounts:active {
+  transform: scale(0.98);
+}
+
+.other-accounts img {
+  width: 25px;
+  margin-right: 20px;
+}
+
+@media (min-width: 454px) {
+  .login-form p {
+    text-align: center;
+  }
+  .other-accounts {
+    width: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .other-accounts {
+    width: 35%;
+  }
+}
+
+@media (max-width: 454px) {
+  .login-form {
+    width: 350px;
+  }
+}
