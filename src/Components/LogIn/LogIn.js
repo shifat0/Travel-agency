@@ -1,29 +1,49 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import NavbarBlack from "../Navbar/NavbarBlack";
 import "./LogIn.css";
 import facebook from "../../images/fb.png";
 import google from "../../images/google.png";
 import { signInWithEmailAndPassword } from "../Firebase/WithEmail";
+import { googleSignIn } from "../Firebase/WithGoogle";
+import { userContext } from "../../App";
 
 const LogIn = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(userContext);
+  const history = useHistory();
+  const location = useLocation();
   const [user, setUser] = useState({
     signedIn: false,
     email: "",
     password: "",
+    photo: "",
     error: "",
     success: "",
   });
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  let { from } = location.state || { from: { pathname: "/" } };
+
+  const signInWithGoogle = () => {
+    googleSignIn().then((payload) => {
+      setUser(payload);
+      setLoggedInUser(payload);
+      history.replace(from);
+    });
+  };
+
   const onSubmit = (e) => {
-    signInWithEmailAndPassword(user.email, user.password).then((payload) =>
-      setUser(payload)
-    );
+    signInWithEmailAndPassword(user.email, user.password).then((payload) => {
+      setUser(payload);
+      setLoggedInUser(payload);
+      history.replace(from);
+    });
   };
 
   const handleBlur = (e) => {
@@ -94,14 +114,14 @@ const LogIn = () => {
         <p className="fancy">
           <span>Or</span>
         </p>
-        <div className="other-accounts">
+        <button className="other-accounts">
           <img src={facebook} alt="facebook" />
           <span>Continue with Facebook</span>
-        </div>
-        <div className="other-accounts">
+        </button>
+        <button className="other-accounts" onClick={signInWithGoogle}>
           <img src={google} alt="google" />
           <span>Continue with Google</span>
-        </div>
+        </button>
       </div>
     </div>
   );

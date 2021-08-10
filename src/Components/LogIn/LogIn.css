@@ -91,6 +91,7 @@ form .submit:active {
   align-items: center;
   width: 82%;
   background-color: #fff;
+  border: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15), 0 0 5px rgba(0, 0, 0, 0.15);
   padding: 1rem;
   border-radius: 30px;
