@@ -1,28 +1,37 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import NavbarBlack from "../Navbar/NavbarBlack";
 import "./SignUp.css";
 import facebook from "../../images/fb.png";
 import google from "../../images/google.png";
+import { createUserWithEmailAndPassword } from "../Firebase/WithEmail";
 
 const SignUp = () => {
+  const [newUser, setNewUser] = useState(true);
   const [user, setUser] = useState({
     signedIn: false,
     firstName: "",
     lastName: "",
     email: "",
     password: "",
+    error: "",
+    success: "",
   });
 
   const {
     register,
-    handleSubmit,
     watch,
+    handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = (e) => {
+    if (newUser && user.email && user.password) {
+      createUserWithEmailAndPassword(user.email, user.password).then(
+        (payload) => setUser(payload)
+      );
+    }
   };
 
   const handleBlur = (e) => {
@@ -49,6 +58,8 @@ const SignUp = () => {
       <NavbarBlack />
       <div className="sign-up-container">
         <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+          {(user.error && <span className="error">{user.error}</span>) ||
+            (user.success && <span>Signed up succesfully</span>)}
           <h3>Create an account</h3>
           <input
             placeholder="First Name"
@@ -127,7 +138,14 @@ const SignUp = () => {
           )}
 
           <input type="submit" value="Create an account" className="submit" />
+          <p>
+            Already have an account?{" "}
+            <Link to="/login">
+              <span>Log in</span>
+            </Link>
+          </p>
         </form>
+
         <p className="fancy">
           <span>Or</span>
         </p>
