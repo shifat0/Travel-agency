@@ -48,7 +48,7 @@ const Body = () => {
         spaceBetween={35}
         slidesPerView={2}
         navigation
-        // autoplay={{ delay: 2000, disableOnInteraction: true }}
+        autoplay={{ delay: 2000, disableOnInteraction: true }}
         loop={true}
         onClick={(swipe) => clickHandler(swipe)}
         onSlideChange={(swipe) => setSlideIndex(swipe.realIndex)}
