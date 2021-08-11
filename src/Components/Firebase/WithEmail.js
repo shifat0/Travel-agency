@@ -7,6 +7,7 @@ export const createUserWithEmailAndPassword = (email, password) => {
       const userInfo = payload.user;
       userInfo.error = "";
       userInfo.success = true;
+      sendEmailVerification();
       return userInfo;
     })
     .catch((error) => {
@@ -29,5 +30,24 @@ export const signInWithEmailAndPassword = (email, password) => {
       const userInfo = {};
       userInfo.error = error.message;
       return userInfo;
+    });
+};
+
+const sendEmailVerification = () => {
+  auth.currentUser.sendEmailVerification().then(() => {
+    // Email verification sent!
+    // ...
+  });
+};
+
+export const resetPassword = (email) => {
+  auth
+    .sendPasswordResetEmail(email)
+    .then(() => {
+      // Password reset email sent!
+      // ..
+    })
+    .catch((error) => {
+      console.log(error.message);
     });
 };

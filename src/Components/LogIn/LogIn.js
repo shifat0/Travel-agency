@@ -5,7 +5,10 @@ import NavbarBlack from "../Navbar/NavbarBlack";
 import "./LogIn.css";
 import facebook from "../../images/fb.png";
 import google from "../../images/google.png";
-import { signInWithEmailAndPassword } from "../Firebase/WithEmail";
+import {
+  resetPassword,
+  signInWithEmailAndPassword,
+} from "../Firebase/WithEmail";
 import { googleSignIn } from "../Firebase/WithGoogle";
 import { userContext } from "../../App";
 
@@ -88,7 +91,7 @@ const LogIn = () => {
             type="password"
             placeholder="Password"
             {...register("password", {
-              required: { value: true, message: "Passwprd is requied" },
+              required: { value: true, message: "Password is requied" },
               pattern: { value: /\d{1}/, message: "Password do not match" },
             })}
             onBlur={handleBlur}
@@ -101,7 +104,9 @@ const LogIn = () => {
               <input type="checkbox" />
               <label htmlFor="checkbox">Remember Me</label>
             </div>
-            <span>Forgot Password</span>
+            <span onClick={() => resetPassword(user.email)}>
+              Forgot Password
+            </span>
           </div>
           <input type="submit" value="Log in" className="submit" />
           <p>
